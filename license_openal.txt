@@ -1,0 +1,3 @@
+
+
+OpenAL Soft is an LGPL-licensed see http://en.wikipedia.org/wiki/OpenAL

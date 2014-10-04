@@ -1,0 +1,41 @@
+#########1#########2#########3#########4#########5#########6#########7#########8
+## compiler and environment
+
+TARGET    = libgpba
+
+DEV_OS    = EABI
+DEV_SDK   = E:/_Document/_Afew_work/glc220
+EABISYS   = D:/bada/2.0.4
+
+XCOMPILE  = arm-bada-eabi-
+GCC_C     = $(XCOMPILE)gcc
+GCC_G     = $(XCOMPILE)g++
+GCC_A     = $(XCOMPILE)ar
+CFLAGS    = -Wall -O0 -g -c
+AFLAGS    = crvs
+
+INCS      =
+INCS     += -I./
+INCS     += -I$(EABISYS)/include
+INCS     += -I$(EABISYS)/Tools/Toolchains/ARM/arm-bada-eabi/include
+INCS     += -I$(DEV_SDK)/include
+
+CFLAGS   += -DSHP -D_DEBUG -D__BADA__
+CFLAGS   += -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP
+
+#CFLAGS   += -DSHP -D_DEBUG -D__BADA__
+#CFLAGS  += -fno-common -march=armv5te -mtune=arm9tdmi -mapcs -msoft-float
+#CFLAGS   += -mtune=arm9tdmi -mapcs -msoft-float
+#CFLAGS   += -fno-short-enums
+#CFLAGS   += -fpic -fshort-wchar
+#CFLAGS   += -mcpu=cortex-a8 -mfpu=vfpv3 -mfloat-abi=hard
+
+#CFLAGS   += -funsigned-char -march=armv7-a  -MMD -MP -MF
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## dest
+
+REMOV     = rm -rf
+
+##
+#########1#########2#########3#########4#########5#########6#########7#########8

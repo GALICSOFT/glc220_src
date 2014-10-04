@@ -1,0 +1,43 @@
+#########1#########2#########3#########4#########5#########6#########7#########8
+##
+
+include ../config.android
+
+TARGET   := $(TARGET)_t22
+
+
+SRCS = LctDBcsv.cpp
+
+SRCS+= lsc/ILhLsc.cpp lsc/LscFile.cpp lsc/LscFont.cpp lsc/LscInput.cpp
+SRCS+= lsc/LscSmd.cpp lsc/LscSys.cpp lsc/LscTex.cpp lsc/LscUtil.cpp
+SRCS+= lsc/LstDB.cpp lsc/LscSptc.cpp lsc/LsxTsa.cpp lsc/LscHw.cpp lsc/LstNet.cpp
+
+OBJS := $(subst lsc/, , $(SRCS) )
+OBJS := $(subst xml/, , $(OBJS) )
+OBJS := $(patsubst %.cpp, %.o, $(OBJS) )
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## compiler and environment
+
+INCS     += -I$(DEV_SDK)/include
+INCS     += -I$(EABISYS)/include
+INCS     += -I./xml
+INCS     += -I./lsc
+
+CFLAGS   += -fexceptions -frtti
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## dest
+
+DSTA      = ../../lib/$(TARGET).a
+
+g:
+	$(GCC_G) $(CFLAGS) $(SRCS) $(INCS)
+	$(GCC_A) $(AFLAGS) $(DSTA) $(OBJS)
+
+	$(REMOV) $(OBJS)
+
+##
+#########1#########2#########3#########4#########5#########6#########7#########8

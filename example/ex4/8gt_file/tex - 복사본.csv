@@ -1,0 +1,11 @@
+img_l_r.png,20,60
+img_l_s.png,20,60
+img_l_p.png,20,60
+img_r_r.png,350,60
+img_r_s.png,350,60
+img_r_p.png,350,60
+ui_bg.png,0,0
+ui_score.png,10,10
+ui_rock.png,20,330
+ui_scissor.png,150,330
+ui_paper.png,280,330

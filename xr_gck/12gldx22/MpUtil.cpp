@@ -1,0 +1,11 @@
+// Implementation of the MpUtilities.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+#include <windows.h>
+#include <mmsystem.h>
+
+#include "MpUtil.h"
+
+

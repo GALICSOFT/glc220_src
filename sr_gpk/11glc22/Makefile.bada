@@ -1,0 +1,41 @@
+#########1#########2#########3#########4#########5#########6#########7#########8
+##
+
+include ../config.bada
+
+TARGET   := $(TARGET)_c22
+
+
+SRCS  = LcInput.cpp LcHaptic.cpp LcGsensor.cpp
+SRCS += LcStdev.cpp LcSystem.cpp LcAux.cpp LcLog.cpp LcFile.cpp LcZip.cpp
+SRCS += LcDevice.cpp LcDevice2.cpp
+SRCS += LcSprite.cpp LcSpriteC.cpp LcSpriteS.cpp LcSpriteL.cpp
+SRCS += LcImage.cpp LcTexture.cpp LcVbo.cpp LcFont.cpp LcFont2.cpp
+SRCS += LcApple.cpp LcAndroid.cpp
+
+OBJS  = $(filter %.o, $(SRCS:.c=.o) $(SRCS:.cpp=.o))
+DEFS  = $(OBJS:.o=.d)
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## compiler and environment
+
+INCS += -I../../rc_cmm/03zlib125
+INCS += -I../../rc_cmm/04png144
+INCS += -I../../rc_cmm/05ftf243/include
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## dest
+
+DSTA  = ../../lib/$(TARGET).a
+
+g:
+	$(GCC_G) $(CFLAGS) $(SRCS) $(INCS)
+	$(GCC_A) $(AFLAGS) $(DSTA) $(OBJS)
+
+	$(REMOV) $(OBJS)
+	$(REMOV) $(DEFS)
+
+##
+#########1#########2#########3#########4#########5#########6#########7#########8

@@ -1,0 +1,68 @@
+#########1#########2#########3#########4#########5#########6#########7#########8
+##
+
+include ../config.bada
+
+TARGET   := $(TARGET)_x22
+
+
+SRCS  = LcxInput.cpp LcxEntity.cpp
+SRCS += LcxCam.cpp LcxCam2D.cpp LcxCam3D.cpp LcxCamera.cpp LcxGeoObj.cpp
+SRCS += LcxSndAL.cpp LcxSndSL.cpp
+
+SRCS += _lcx_mdl/LcxMdl.cpp
+SRCS += _lcx_mdl/LcxAse.cpp _lcx_mdl/LcxAst.cpp _lcx_mdl/LcxAst2.cpp
+SRCS += _lcx_mdl/LcxAst3.cpp _lcx_mdl/LcxAsb.cpp _lcx_mdl/LcxAsbIns.cpp
+SRCS += _lcx_mdl/LcxAcm.cpp _lcx_mdl/LcxAcm2.cpp _lcx_mdl/LcxAcmIns.cpp
+
+SRCS += _lcx_tda/LcxTda.cpp _lcx_tda/LcxTda2.cpp
+SRCS += _lcx_tdm/LcxTdm.cpp _lcx_tdm/LcxTdmU.cpp
+SRCS += _lcx_tdm/LcxTdmT.cpp _lcx_tdm/LcxTdmT2.cpp
+SRCS += _lcx_tdm/LcxTdmB.cpp _lcx_tdm/LcxTdmIns.cpp
+
+SRCS += _lcx_gui/LcxGui.cpp _lcx_gui/LcxGuiU.cpp
+SRCS += _lcx_gui/LcxGuiPrc.cpp _lcx_gui/LcxGuiRsc.cpp
+SRCS += _lcx_gui/LcxGuiBtn.cpp _lcx_gui/LcxGuiSysBtn.cpp
+SRCS += _lcx_gui/LcxGuiDialog.cpp _lcx_gui/LcxGuiStatic.cpp
+
+SRCS += _lcx_eft/LcxEffect.cpp _lcx_eft/LcxEftU.cpp _lcx_eft/LcxEftPtc2d.cpp
+SRCS += _lcx_eft/LcxEftPtc3d.cpp _lcx_eft/LcxEftTexAni.cpp
+
+SRCS += _lcx_mos/LcxMoSqc.cpp _lcx_mos/LcxMoSqc2d.cpp _lcx_mos/LcxMoSqc3d.cpp
+
+SRCS += _lcx_net/LcxNetwork.cpp _lcx_net/LcxNetInst.cpp
+SRCS += _lcx_net/SelectCln.cpp _lcx_net/SelectSvr.cpp
+
+
+OBJS := $(subst _lcx_mdl/, , $(SRCS) )
+OBJS := $(subst _lcx_tdm/, , $(OBJS) )
+OBJS := $(subst _lcx_gui/, , $(OBJS) )
+OBJS := $(subst _lcx_eft/, , $(OBJS) )
+OBJS := $(subst _lcx_mos/, , $(OBJS) )
+OBJS := $(subst _lcx_tda/, , $(OBJS) )
+OBJS := $(subst _lcx_net/, , $(OBJS) )
+OBJS := $(patsubst %.cpp, %.o, $(OBJS) )
+DEFS  = $(OBJS:.o=.d)
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## compiler and environment
+
+INCS += -I../../include
+INCS += -I../../rc_cmm/05ftf243/include
+INCS += -I$(DEV_SDK)/usr/include
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## dest
+
+DSTA  = ../../lib/$(TARGET).a
+
+g:
+	$(GCC_G) $(CFLAGS) $(SRCS) $(INCS)
+	$(GCC_A) $(AFLAGS) $(DSTA) $(OBJS)
+
+	$(REMOV) $(OBJS)
+	$(REMOV) $(DEFS)
+
+##
+#########1#########2#########3#########4#########5#########6#########7#########8

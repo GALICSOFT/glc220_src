@@ -1,0 +1,32 @@
+#########1#########2#########3#########4#########5#########6#########7#########8
+## compiler and environment
+
+TARGET    = libgpan
+
+DEV_SDK   = E:/_Document/_Afew_work/glc220
+EABISYS   = D:/android-ndk-r8d/platforms/android-9/arch-arm/usr
+STL_INC   = D:/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.6
+
+XCOMPILE  = arm-linux-androideabi-
+GCC_C     = $(XCOMPILE)gcc
+GCC_G     = $(XCOMPILE)g++
+GCC_A     = $(XCOMPILE)ar
+CFLAGS    = -Os -Wall -c
+AFLAGS    = crvs
+
+INCS      =
+INCS     += -I./
+
+CFLAGS   += -D__ANDROID__ -D__OPENSL_ES__
+CFLAGS   += -fno-common -march=armv5te -mtune=arm9tdmi -mapcs -msoft-float
+CFLAGS   += -fno-short-enums
+CFLAGS   += -fexceptions -frtti
+
+
+#########1#########2#########3#########4#########5#########6#########7#########8
+## dest
+
+REMOV     = rm -rf
+
+##
+#########1#########2#########3#########4#########5#########6#########7#########8

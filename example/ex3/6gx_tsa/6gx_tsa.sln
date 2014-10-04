@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6gx_tsa", "6gx_tsa.vcproj", "{F97EFD1B-0DB8-463C-B6D5-C11A6F9E9499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F97EFD1B-0DB8-463C-B6D5-C11A6F9E9499}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F97EFD1B-0DB8-463C-B6D5-C11A6F9E9499}.Debug|Win32.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
